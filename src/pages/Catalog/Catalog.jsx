@@ -1,11 +1,15 @@
-import CampersList from "../../components/CampersList/CampersList"
-
+import Container from "../../components/Container/Container";
+import CampersList from "../../components/CampersList/CampersList";
+import Sidebar from "../../components/Sidebar/Sidebar"
+import { CatalogWrapper } from "./Catalog.styled";
 const Catalog = () => {
     return (
-        <>
-            <h2 style={{ marginTop: '135px' }}></h2>
-            <CampersList />
-        </>
+        <Container>
+            <CatalogWrapper>
+                <Sidebar />
+                <CampersList />
+            </CatalogWrapper>
+        </Container>
     )
 }
 
