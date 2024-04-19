@@ -25,12 +25,24 @@ export const InputElement = styled.input`
     color: #101828;
     outline: none; 
         ::placeholder {
+            position: relative;
+            padding-left: 24px; 
             font-weight: 400;
             font-size: 16px;
             line-height: 1.25;
             color: rgba(16, 24, 40, 0.6);
         }
-        &:focus {
-            border-color:#18a287; 
+
+        ::placeholder::before {
+            content: "";
+            position: absolute;
+            left: 8px; 
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px; 
+            height: 16px; 
+            background-image: url("../../assets/icons/point.svg"); 
+            background-size: contain; 
+            background-repeat: no-repeat; 
         }
 `

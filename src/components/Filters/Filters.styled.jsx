@@ -16,13 +16,19 @@ export const SubTitleEl = styled.p`
     border-bottom: 1px solid rgba(16, 24, 40, 0.1);
     margin-bottom: 24px;
 `
-export const FiltersList = styled.ul`
+export const FiltersListEquipment = styled.ul`
     width: 360px;
-    height: 198px;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     margin-bottom: 32px;
+`
+export const FiltersListType = styled.ul`
+    width: 360px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
 `
 export const FiltersItem = styled.li`
 

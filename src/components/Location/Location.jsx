@@ -1,5 +1,6 @@
+import { Field, LabelElement, InputElement } from './Location.styled';
 
-import { Field, LabelElement, InputElement } from './Location.styled'
+import { ReactComponent as IconLocation } from "../../assets/icons/point.svg";
 
 const Location = () => {
     return (
@@ -7,7 +8,7 @@ const Location = () => {
             <LabelElement>
                 Location
             </LabelElement>
-            <InputElement type="text" name="location" required placeholder='City' />
+            <InputElement type="text" name="location" required placeholder="City" />
         </Field>
     );
 }

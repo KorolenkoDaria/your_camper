@@ -3,7 +3,7 @@ import axios from "axios";
 
 const BASE_URL = "https://659e9fda47ae28b0bd365337.mockapi.io/myapi";
 
-export const fetchContacts = createAsyncThunk(
+export const fetchCampers = createAsyncThunk(
   "campers/fetchAll",
   async (_, thunkAPI) => {
     try {

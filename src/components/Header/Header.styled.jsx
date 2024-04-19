@@ -10,6 +10,7 @@ export const StyledHeader = styled.header`
     left: 0;
     width: 100%;
     border-bottom: 1px solid rgba(16, 24, 40, 0.2);
+    background: #fff;
 `
 export const StyledNav = styled.nav`
     

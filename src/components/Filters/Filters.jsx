@@ -1,4 +1,4 @@
-import { TitleEl, SubTitleEl, FiltersList, FiltersItem, LabelEl, InputEl } from "./Filters.styled";
+import { TitleEl, SubTitleEl, FiltersListEquipment, FiltersItem, LabelEl, InputEl, FiltersListType } from "./Filters.styled";
 
 import { useState } from "react";
 
@@ -35,7 +35,7 @@ const Filters = () => {
         <>
             <TitleEl>Filters</TitleEl>
             <SubTitleEl>Vehicle equipment</SubTitleEl>
-            <FiltersList>
+            <FiltersListEquipment>
                 <FiltersItem>
                     <InputEl type="checkbox" id="filterAc" onChange={handleCheckboxChange} />
                     <LabelEl htmlFor="filterAc" checked={isChecked.filterAc}>
@@ -71,9 +71,9 @@ const Filters = () => {
                         Shower
                     </LabelEl>
                 </FiltersItem>
-            </FiltersList>
+            </FiltersListEquipment>
             <SubTitleEl>Vehicle type</SubTitleEl>
-            <FiltersList>
+            <FiltersListType>
                 <FiltersItem>
                     <InputEl type="checkbox" id="filterVan" onChange={handleCheckboxChange} />
                     <LabelEl htmlFor="filterVan" checked={isChecked.filterVan}>
@@ -95,7 +95,7 @@ const Filters = () => {
                         Alcove
                     </LabelEl>
                 </FiltersItem>
-            </FiltersList>
+            </FiltersListType>
         </>
     )
 }
