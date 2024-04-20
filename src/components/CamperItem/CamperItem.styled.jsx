@@ -72,7 +72,9 @@ export const RatingEl = styled.div`
     text-decoration-skip-ink: none;
 `
 export const LocationEl = styled.div`
-
+    display: flex;
+    gap: 4px;
+    align-items: center;
 `
 export const DescriptionEl = styled.p`
     font-weight: 400;

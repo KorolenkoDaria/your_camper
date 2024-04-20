@@ -1,38 +1,28 @@
-import { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 import ModalCamper from "../components/ModalCamper/ModalCamper";
 
-export const ModalContext = createContext({
-    openModal: () => { },
-    closeModal: () => { },
-});
+
+const ModalContext = createContext();
 
 export const ModalProvider = ({ children }) => {
-    const [modalShowing, setModalShowing] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState(null);
-    const [overflow, setOverflow] = useState(null);
 
-    const openModal = (modalConfig, inOverflow) => {
-        setModalContent(modalConfig.props);
-        setOverflow(inOverflow);
-        setModalShowing(true);
+    const openModal = (itemId) => {
+        setModalContent(itemId)
+        setIsModalOpen(true);
     };
 
     const closeModal = () => {
-        setModalShowing(false);
-    };
-
-    const valueModalProvider = {
-        openModal,
-        closeModal,
+        setIsModalOpen(false);
     };
 
     return (
-        <ModalContext.Provider value={valueModalProvider}>
-            {/*  <GlobalStyle $isVisibility={modalShowing ? 'hidden' : 'scroll'} /> */}
-            {modalShowing && (
-                <ModalCamper {...modalContent} inOverflow={overflow} />
-            )}
+        <ModalContext.Provider value={{ isModalOpen, openModal, closeModal }}>
             {children}
+            {isModalOpen && <ModalCamper itemId={modalContent}>{children}</ModalCamper>}s
         </ModalContext.Provider>
     );
 };
+
+export const useModal = () => useContext(ModalContext);

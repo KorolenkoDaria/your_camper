@@ -44,3 +44,58 @@ img {
   display: block;
   width: 100%;
 }
+
+.feature::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.adults::before {
+  background-image: url(/src/assets/icons/adults.svg);
+}
+.beds::before {
+  background-image: url(/src/assets/icons/beds.svg);
+}
+.hob::before {
+  background-image: url(/src/assets/icons/hob.svg);
+}
+.toilet::before {
+  background-image: url(/src/assets/icons/toilet.svg);
+}
+.microwave::before {
+  background-image: url(/src/assets/icons/microwave.svg);
+}
+.water::before {
+  background-image: url(/src/assets/icons/water.svg);
+}
+.gas::before {
+  background-image: url(/src/assets/icons/gas.svg);
+}
+.freezer::before {
+  background-image: url(/src/assets/icons/freezer.svg);
+}
+.shower::before {
+  background-image: url(/src/assets/icons/shower.svg);
+}
+.cd::before {
+  background-image: url(/src/assets/icons/cd.svg);
+}
+.radio::before {
+  background-image: url(/src/assets/icons/radio.svg);
+}
+.airconditioner::before {
+  background-image: url(/src/assets/icons/airconditioner.svg);
+}
+.kitchen::before {
+  background-image: url(/src/assets/icons/kitchen.svg);
+}
+.transmission::before {
+  background-image: url(/src/assets/icons/transmission.svg);
+}
+.engine::before {
+  background-image: url(/src/assets/icons/engine.svg);
+}

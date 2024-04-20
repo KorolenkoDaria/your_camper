@@ -1,22 +1,22 @@
-import { ModalContext } from '../../context/ModalContext';
-import { useState, useContext } from "react";
+
+import { useState } from "react";
 
 import { Item, ImgWrapper, Properties, TitleWrapper, Title, PriceEl, RatingEl, LocationEl, LocationWrapper, DescriptionEl, DetailsList, DetailsItem, ImgEl, ButtonHeart } from "./CamperItem.styled";
 
 import Button from "../Button/Button";
-import ModalCamper from "../ModalCamper/ModalCamper";
+import { useModal } from "../../context/ModalContext";
 
 
 import { ReactComponent as IconStar } from "../../assets/icons/star.svg";
 import { ReactComponent as IconHeart } from "../../assets/icons/heart.svg";
 import { ReactComponent as IconRedHeart } from "../../assets/icons/red_heart.svg";
 import { ReactComponent as IconAdults } from "../../assets/icons/adults.svg";
-import { ReactComponent as IconAutomatic } from '../../assets/icons/automatic_min.svg';
-import { ReactComponent as IconPetrol } from "../../assets/icons/petrol.svg";
+import { ReactComponent as IconAutomatic } from '../../assets/icons/transmission.svg';
+import { ReactComponent as IconPetrol } from "../../assets/icons/engine.svg";
 import { ReactComponent as IconKitchen } from "../../assets/icons/kitchen_min.svg";
 import { ReactComponent as IconBeds } from "../../assets/icons/beds.svg";
 import { ReactComponent as IconAC } from "../../assets/icons/ac_min.svg";
-
+import { ReactComponent as IconLocation } from "../../assets/icons/point_min.svg"
 const CamperItem = ({
     adults,
     transmission,
@@ -28,10 +28,9 @@ const CamperItem = ({
     location,
     price,
     name,
-    id,
-    key }) => {
+    itemId }) => {
     const [isLiked, setIsLiked] = useState(false);
-    const { openModal } = useContext(ModalContext);
+    const { openModal } = useModal();
 
 
     const handleLikeClick = () => {
@@ -42,8 +41,8 @@ const CamperItem = ({
     reviews.map((review) => { return calcRating += review.reviewer_rating })
     const rating = (calcRating / reviews.length).toFixed(1);
 
-    const handleClickButton = () => {
-        openModal(<ModalCamper />)
+    const handleOpenModal = (id) => {
+        openModal(id)
     }
 
     return (
@@ -61,7 +60,7 @@ const CamperItem = ({
                 <LocationWrapper>
                     <RatingEl><IconStar />{`${rating}(${reviews.length} Reviews)`}</RatingEl>
                     <LocationEl>
-                        {location.split(",").reverse().join(", ")}
+                        <IconLocation /> {location.split(",").reverse().join(", ")}
                     </LocationEl>
                 </LocationWrapper>
                 <DescriptionEl>{description}</DescriptionEl>
@@ -73,7 +72,7 @@ const CamperItem = ({
                     <DetailsItem><IconBeds />{`${details.beds} beds`}</DetailsItem>
                     <DetailsItem><IconAC />AC</DetailsItem>
                 </DetailsList>
-                <Button onClick={handleClickButton}>Show more</Button>
+                <Button onClick={() => handleOpenModal(itemId)}>Show more</Button>
             </Properties>
         </Item>
     )

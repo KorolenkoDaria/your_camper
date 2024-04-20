@@ -33,7 +33,7 @@ const CampersList = () => {
                 {campers.slice(0, visibleItems).map((camper) =>
                     <CamperItem
                         key={camper._id}
-                        id={camper._id}
+                        itemId={camper._id}
                         name={camper.name}
                         price={camper.price}
                         location={camper.location}
@@ -44,11 +44,10 @@ const CampersList = () => {
                         engine={camper.engine}
                         transmission={camper.transmission}
                         adults={camper.adults}
-
                     />
                 )}
             </ListStyle>
-            {!allItemsShown && <ButtonEl onClick={handleLoadMore}>Load more</ButtonEl>}
+            {allItemsShown && <ButtonEl onClick={handleLoadMore}>Load more</ButtonEl>}
         </CatalogWrapper>
     )
 }
