@@ -1,6 +1,5 @@
 import { Field, LabelElement, InputElement } from './Location.styled';
 
-import { ReactComponent as IconLocation } from "../../assets/icons/point.svg";
 
 const Location = () => {
     return (
