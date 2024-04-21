@@ -1,8 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy } from "react";
 
-/* import RestrictedRoute from '../RestrictedRoute'; */
-/* import ModalCamper from "../ModalCamper/ModalCamper.jsx"; */
 import { ModalProvider } from "../../context/ModalContext.jsx";
 import { Wrapper } from './App.styled.jsx';
 
@@ -17,7 +15,7 @@ function App() {
     <ModalProvider>
       <Wrapper>
         <Header />
-        <Suspense /* fallback={<Loader />} */>
+        <Suspense >
           <Routes>
             <Route path={'/'}>
               <Route index element={<HomePage />} />

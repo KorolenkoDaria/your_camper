@@ -9,14 +9,6 @@ const showBackdrop = keyframes`
 opacity: 1;
 }`;
 
-const scrollThumbHover = keyframes`
-  0% {
-    background-color: #888;
-  }
-  100% {
-    background-color: #555;
-  }
-`
 
 export const ScrollContainer = styled.div`
   max-height: 500px;

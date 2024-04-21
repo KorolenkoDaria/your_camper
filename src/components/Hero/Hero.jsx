@@ -1,5 +1,4 @@
 import { Section, HerroWrapper, MainTitle, Subtitle, WrapperBtn, StyledNavLink } from "./Hero.styled";
-import Button from "../Button/Button"
 
 const Hero = () => {
     return (
