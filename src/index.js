@@ -10,7 +10,7 @@ import App from "./components/App/App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/your_camper/">
       <Provider store={store}>
         <App />
       </Provider>
