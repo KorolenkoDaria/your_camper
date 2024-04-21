@@ -14,24 +14,8 @@ export const ScrollContainer = styled.div`
   max-height: 500px;
   overflow-y: auto;
   overflow-x: hidden;
-
-  /* Стилизация полосы прокрутки */
-  /* Для WebKit браузеров */
- 
-  scrollbar-width: thin; /* устанавливаем толщину полосы прокрутки */
+  scrollbar-width: thin; 
   scrollbar-color:#d9d9d9;
-  scroll-padding-left: 16px;
-  /* Цвет фона полосы прокрутки */
-  &::-webkit-scrollbar-track {
-    background: #660d0d;
-  }
-
-  /* Стилизация бегунка */
-  &::-webkit-scrollbar-thumb {
-    background: #db4545; /* Цвет бегунка */
-    border-radius: 5px; /* Скругление углов бегунка */
-    transition: background-color 0.3s ease; /* Плавное изменение цвета бегунка */
-  }
 `
 
 export const Backdrop = styled.div`

@@ -56,7 +56,7 @@ color: #101828;
 ${({ checked }) =>
         checked &&
         css`
-            border-color: #E44848; /* Измените цвет рамки для checked состояния */
+            border-color: #E44848; 
         `}
 `
 

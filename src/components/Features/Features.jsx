@@ -1,9 +1,6 @@
 import { WrapperEl, UlEl, LiEl, Title, Table, TdLeft, TdRight, TbodyEl } from "./Features.styled"
 
 const Features = ({ camper }) => {
-
-    const keys = Object.keys(camper.details);
-    console.log(keys);
     let characteristics = [{ name: 'adults', value: camper.adults + ' adults' }, { name: "engine", value: camper.engine }, { name: "transmission", value: camper.transmission }];
 
     for (let key in camper.details) {
@@ -23,11 +20,10 @@ const Features = ({ camper }) => {
             }
         }
     }
-    console.log("characteristics", characteristics);
     return (
         <WrapperEl>
             <UlEl>{characteristics.map((el, index) =>
-                <LiEl className={`feature ${el.name}`}>{el.value}</LiEl>
+                <LiEl className={`feature ${el.name}`} key={index}>{el.value}</LiEl>
             )}</UlEl>
             <Title>Vehicle details</Title>
             <Table>

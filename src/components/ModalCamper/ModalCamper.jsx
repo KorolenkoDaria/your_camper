@@ -14,6 +14,7 @@ import { ReactComponent as IconLocation } from "../../assets/icons/point_min.svg
 
 const ModalCamper = ({ itemId }) => {
     const { isModalOpen, closeModal } = useModal();
+
     const [activeTab, setActiveTab] = useState('Features');
 
     const campers = useSelector(state => state.campers.campers);
@@ -27,10 +28,16 @@ const ModalCamper = ({ itemId }) => {
     let calcRating = 0;
     reviews.map((review) => { return calcRating += review.reviewer_rating });
     const rating = (calcRating / reviews.length).toFixed(1);
+
+    document.addEventListener('keyup', (e) => {
+        if (e.key === 'Escape') {
+            closeModal()
+        }
+    })
     return (
         <>
-            {isModalOpen && (< Backdrop>
-                <ModalWrapper>
+            {isModalOpen && (< Backdrop onClick={closeModal}  >
+                <ModalWrapper >
 
                     <ButtonEl onClick={closeModal}><IconClose /></ButtonEl>
                     <Title>{name}</Title>

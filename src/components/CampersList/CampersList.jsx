@@ -46,7 +46,7 @@ const CampersList = () => {
                         engine={camper.engine}
                         transmission={camper.transmission}
                         adults={camper.adults}
-                        isFavorite={storedItems.includes(camper._id)} // Проверяем, является ли элемент избранным
+                        isFavorite={storedItems.includes(camper._id)}
                     />
                 )}
             </ListStyle>

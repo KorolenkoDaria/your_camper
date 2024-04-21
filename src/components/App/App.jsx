@@ -24,20 +24,7 @@ function App() {
             </Route>
           </Routes>
         </Suspense>
-        {/* <ToastContainer position="top-center"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      ></ToastContainer> */}
-
       </Wrapper >
-      {/* <ModalCamper test="4" /> */}
     </ModalProvider>
   );
 }

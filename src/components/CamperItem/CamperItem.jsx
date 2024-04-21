@@ -40,10 +40,10 @@ const CamperItem = ({
         const index = storedItems.indexOf(id);
         if (index !== -1) {
             storedItems.splice(index, 1);
-            setIsLiked(false);// Удаляем itemId из массива
+            setIsLiked(false);
         } else {
             storedItems.push(id);
-            setIsLiked(true);// Добавляем itemId в массив
+            setIsLiked(true);
         }
         localStorage.setItem('storedItems', JSON.stringify(storedItems));
     };

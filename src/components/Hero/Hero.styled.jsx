@@ -8,7 +8,6 @@ export const Section = styled.section`
 
 export const HerroWrapper = styled.div`
     padding: 160px 0 160px 0;
-  /*   background: linear-gradient(to bottom, rgba(139, 138, 138, 0.3), rgba(158, 157, 157, 0.3)); */
 `
 
 export const MainTitle = styled.h1`
