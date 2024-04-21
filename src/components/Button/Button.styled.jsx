@@ -12,6 +12,7 @@ export const ButtonEl = styled.button`
     line-height: 1.5;
     letter-spacing: -0.01em;
     color: #fff;
+    transition: background 0.3s ease-in-out; 
     &:hover {
         background: #d84343; 
     }

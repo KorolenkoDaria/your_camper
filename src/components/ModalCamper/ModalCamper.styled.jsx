@@ -8,18 +8,39 @@ const showBackdrop = keyframes`
 100% {
 opacity: 1;
 }`;
-/* 
-const showModal = keyframes`
-0% {
-  opacity: 0;
-  transform: translateY(-200px);
-}
 
-100% {
-  opacity: 1;
-transform: translateY(0px);
-}
-` */
+const scrollThumbHover = keyframes`
+  0% {
+    background-color: #888;
+  }
+  100% {
+    background-color: #555;
+  }
+`
+
+export const ScrollContainer = styled.div`
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Стилизация полосы прокрутки */
+  /* Для WebKit браузеров */
+ 
+  scrollbar-width: thin; /* устанавливаем толщину полосы прокрутки */
+  scrollbar-color:#d9d9d9;
+  scroll-padding-left: 16px;
+  /* Цвет фона полосы прокрутки */
+  &::-webkit-scrollbar-track {
+    background: #660d0d;
+  }
+
+  /* Стилизация бегунка */
+  &::-webkit-scrollbar-thumb {
+    background: #db4545; /* Цвет бегунка */
+    border-radius: 5px; /* Скругление углов бегунка */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета бегунка */
+  }
+`
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -27,7 +48,6 @@ export const Backdrop = styled.div`
   left: 0;
   z-index: 100;
   padding: 40px;
-/*   overflow-y: scroll; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -36,15 +56,16 @@ export const Backdrop = styled.div`
   background-color:rgba(17, 18, 19, 0.4);
   animation: ${showBackdrop} 0.5s ease-out;
 `
-
-export const ModalEl = styled.div`
+export const ModalWrapper = styled.div`
     position: relative;
     border-radius: 20px;
     padding: 40px;
     width: 982px;
     background: #fff;
-
+    max-height: 720px;
+    overflow: hidden;
 `
+
 
 export const Title = styled.p`
   font-weight: 600;
@@ -75,8 +96,6 @@ export const WrapperLoc = styled.div`
   margin-bottom: 16px;
 `
 export const ContentWrapper = styled.div`
-  max-height: 410px;
-  overflow: auto;
   margin-bottom: 44px;
 `
 export const GalleryItem = styled.div`
@@ -136,14 +155,22 @@ export const Tab = styled.button`
     width: 100%;
     height: 6px;
     background-color: ${props => props.active ? '#e44848' : 'inherit'};
-    opacity: ${props => props.active ? '1' : '0'}; /* Показываем или скрываем */
-    transition: opacity 0.3s ease-in-out; /* Анимация перехода */
+    opacity: ${props => props.active ? '1' : '0'}; 
+    transition: opacity 0.3s ease-in-out; 
   }
 `
-
-
 export const TabWrapper = styled.div`
-    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(16, 24, 40, 0.2);
+    margin-bottom: 44px;
+    padding-bottom: 24px;
+    
 `
+export const SectionEl = styled.div`
+
+    display: flex;
+    gap: 24px;
+`
+
+
 
 

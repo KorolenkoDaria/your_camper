@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const WrapperEl = styled.section`
-    padding-top: 44px;
-    border-top: 1px solid rgba(16, 24, 40, 0.1);
 
 `
 export const UlEl = styled.ul`
@@ -43,9 +41,13 @@ padding-top: 24px;
 `
 export const TdRight = styled.td`
     text-align: right;
+    height: 38px;
+    vertical-align: top;
 `
 export const TdLeft = styled.td`
     text-align: left;
+    height: 38px;
+    vertical-align: top;
 `
 export const TbodyEl = styled.tbody`
 

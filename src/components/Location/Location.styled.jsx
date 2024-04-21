@@ -1,10 +1,25 @@
 import { styled } from "styled-components";
 
+import pointSVG from "../../assets/icons/point_grey.svg";
+
 export const Field = styled.div`
+position: relative;
     display: flex;
     flex-direction: column;
     gap: 8px;
     margin-bottom: 32px;
+    ::before {
+            content: "";
+            position: absolute;
+            left: 18px; 
+            bottom: 12px;
+            transform: translateY(-50%);
+            width: 16px; 
+            height: 16px; 
+            background-image: url(${pointSVG}); 
+            background-size: contain; 
+            background-repeat: no-repeat; 
+        }
 `
 export const LabelElement = styled.label`
     font-weight: 500;
@@ -15,7 +30,7 @@ export const LabelElement = styled.label`
 export const InputElement = styled.input`
     background: #f7f7f7;
     border-radius: 10px;
-    padding: 18px 18px 18px 18px;
+    padding: 18px 18px 18px 44px;
     width: 360px;
     height: 56px;
     border: none;
@@ -33,16 +48,4 @@ export const InputElement = styled.input`
             color: rgba(16, 24, 40, 0.6);
         }
 
-        ::placeholder::before {
-            content: "";
-            position: absolute;
-            left: 8px; 
-            top: 50%;
-            transform: translateY(-50%);
-            width: 16px; 
-            height: 16px; 
-            background-image: url("../../assets/icons/point.svg"); 
-            background-size: contain; 
-            background-repeat: no-repeat; 
-        }
 `

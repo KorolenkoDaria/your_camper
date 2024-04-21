@@ -20,7 +20,7 @@ export const ModalProvider = ({ children }) => {
     return (
         <ModalContext.Provider value={{ isModalOpen, openModal, closeModal }}>
             {children}
-            {isModalOpen && <ModalCamper itemId={modalContent}>{children}</ModalCamper>}s
+            {isModalOpen && <ModalCamper itemId={modalContent}>{children}</ModalCamper>}
         </ModalContext.Provider>
     );
 };

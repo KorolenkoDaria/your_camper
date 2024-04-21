@@ -13,6 +13,8 @@ const CampersList = () => {
     const [visibleItems, setVisibleItems] = useState(4);
     const [allItemsShown, setAllItemsShown] = useState(false);
 
+    const storedItems = JSON.parse(localStorage.getItem('storedItems')) || [];
+
     useEffect(() => {
         dispatch(fetchCampers());
     }, [dispatch]);
@@ -44,6 +46,7 @@ const CampersList = () => {
                         engine={camper.engine}
                         transmission={camper.transmission}
                         adults={camper.adults}
+                        isFavorite={storedItems.includes(camper._id)} // Проверяем, является ли элемент избранным
                     />
                 )}
             </ListStyle>

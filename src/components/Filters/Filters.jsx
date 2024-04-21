@@ -13,16 +13,17 @@ import { ReactComponent as IconAlcove } from '../../assets/icons/alcove.svg'
 
 const Filters = () => {
 
+    const [selectedVehicleType, setSelectedVehicleType] = useState('');
     const [isChecked, setIsChecked] = useState({
         filterAc: false,
         filterAutomatic: false,
         filterKitchen: false,
         filterTv: false,
         filterShower: false,
-        filterAlcove: false,
-        filterVan: false,
-        filterFullyIntegrated: false,
     });
+    const handleRadioChange = (evt) => {
+        setSelectedVehicleType(evt.target.id);
+    };
 
     const handleCheckboxChange = (evt) => {
         const { id, checked } = evt.target;
@@ -75,22 +76,22 @@ const Filters = () => {
             <SubTitleEl>Vehicle type</SubTitleEl>
             <FiltersListType>
                 <FiltersItem>
-                    <InputEl type="checkbox" id="filterVan" onChange={handleCheckboxChange} />
-                    <LabelEl htmlFor="filterVan" checked={isChecked.filterVan}>
+                    <InputEl type="radio" id="filterVan" name="vehicleType" onChange={handleRadioChange} />
+                    <LabelEl htmlFor="filterVan" checked={selectedVehicleType === 'filterVan'}>
                         <IconVan />
                         Van
                     </LabelEl>
                 </FiltersItem>
                 <FiltersItem>
-                    <InputEl type="checkbox" id="filterFullyIntegrated" onChange={handleCheckboxChange} />
-                    <LabelEl htmlFor="filterFullyIntegrated" checked={isChecked.filterFullyIntegrated}>
+                    <InputEl type="radio" id="filterFullyIntegrated" name="vehicleType" onChange={handleRadioChange} />
+                    <LabelEl htmlFor="filterFullyIntegrated" checked={selectedVehicleType === 'filterFullyIntegrated'}>
                         <IconFullyIntegrated />
                         Fully Integrated
                     </LabelEl>
                 </FiltersItem>
                 <FiltersItem>
-                    <InputEl type="checkbox" id="filterAlcove" onChange={handleCheckboxChange} />
-                    <LabelEl htmlFor="filterAlcove" checked={isChecked.filterAlcove}>
+                    <InputEl type="radio" id="filterAlcove" name="vehicleType" onChange={handleRadioChange} />
+                    <LabelEl htmlFor="filterAlcove" checked={selectedVehicleType === 'filterAlcove'}>
                         <IconAlcove />
                         Alcove
                     </LabelEl>

@@ -1,12 +1,13 @@
-import { Backdrop, ModalEl, Title, GalleryImg, GalleryItem, GalleryWrapper, Description, ContentWrapper, ButtonEl, RatingEl, LocationEl, WrapperLoc, PriceEl, Tab, TabWrapper } from "./ModalCamper.styled";
+import { Backdrop, ModalWrapper, ScrollContainer, Title, GalleryImg, GalleryItem, GalleryWrapper, Description, ContentWrapper, ButtonEl, RatingEl, LocationEl, WrapperLoc, PriceEl, Tab, TabWrapper, SectionEl } from "./ModalCamper.styled";
 import { useModal } from "../../context/ModalContext";
 import { useState } from 'react';
 import { useSelector } from "react-redux";
 
 import Features from "../Features/Features";
 import Reviews from "../Reviews/Reviews";
+import FormModal from "../FormModal/FormModal";
 
-import { ReactComponent as IconClose } from "../../assets/icons/close.svg"
+import { ReactComponent as IconClose } from "../../assets/icons/close.svg";
 import { ReactComponent as IconStar } from "../../assets/icons/star.svg";
 import { ReactComponent as IconLocation } from "../../assets/icons/point_min.svg";
 
@@ -29,7 +30,8 @@ const ModalCamper = ({ itemId }) => {
     return (
         <>
             {isModalOpen && (< Backdrop>
-                <ModalEl>
+                <ModalWrapper>
+
                     <ButtonEl onClick={closeModal}><IconClose /></ButtonEl>
                     <Title>{name}</Title>
                     <WrapperLoc>
@@ -37,18 +39,22 @@ const ModalCamper = ({ itemId }) => {
                         <LocationEl><IconLocation /> {location.split(",").reverse().join(", ")}</LocationEl>
                     </WrapperLoc>
                     <PriceEl>€{price}.00</PriceEl>
-                    <ContentWrapper>
-                        <GalleryWrapper>
-                            {gallery.map((el) => (<GalleryItem><GalleryImg key={el._id} src={el} alt={name} /></GalleryItem>))}
-                        </GalleryWrapper>
-                        <Description>{description}</Description>
-                    </ContentWrapper>
-                    <TabWrapper>
-                        <Tab active={activeTab === 'Features'} onClick={() => setActiveTab('Features')}>Features</Tab>
-                        <Tab active={activeTab === 'Reviews'} onClick={() => setActiveTab('Reviews')}>Reviews</Tab>
-                    </TabWrapper>
-                    {activeTab === 'Features' ? <Features camper={camper} /> : <Reviews />}
-                </ModalEl>
+                    <ScrollContainer className="scroll">
+                        <ContentWrapper>
+                            <GalleryWrapper>
+                                {gallery.map((el) => (<GalleryItem><GalleryImg key={el._id} src={el} alt={name} /></GalleryItem>))}
+                            </GalleryWrapper>
+                            <Description>{description}</Description>
+                        </ContentWrapper>
+                        <TabWrapper>
+                            <Tab active={activeTab === 'Features'} onClick={() => setActiveTab('Features')}>Features</Tab>
+                            <Tab active={activeTab === 'Reviews'} onClick={() => setActiveTab('Reviews')}>Reviews</Tab>
+                        </TabWrapper>
+                        <SectionEl>{activeTab === 'Features' ? <Features camper={camper} /> : <Reviews reviews={reviews} />}
+                            <FormModal></FormModal>
+                        </SectionEl>
+                    </ScrollContainer>
+                </ModalWrapper>
 
             </Backdrop >)
             }

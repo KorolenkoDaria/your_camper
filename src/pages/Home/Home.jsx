@@ -1,7 +1,16 @@
+import Hero from "../../components/Hero/Hero";
+import Container from "../../components/Container/Container";
+
+import { Background } from './Home.styled'
+
+
 const Home = () => {
     return (
-        <h1 style={{ marginTop: '130px' }
-        }> Hello world!!!</h1 >
+        <Background>
+            <Container>
+                <Hero></Hero>
+            </Container>
+        </Background>
     )
 }
 export default Home;    

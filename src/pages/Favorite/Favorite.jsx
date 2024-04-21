@@ -1,6 +1,20 @@
+import Container from "../../components/Container/Container";
+import FavoriteCamperlist from "../../components/FavoriteCamperlist/FavoriteCamperlist"
+
+import { FavoriteWrapper } from "./Favorite.styled";
+
+/* 
+import { useState, useEffect } from "react"; */
+
 const Favorite = () => {
+
     return (
-        <h2>Hello i am a Favorite!!!</h2>
+        <Container>
+            <FavoriteWrapper>
+                <FavoriteCamperlist />
+            </FavoriteWrapper>
+
+        </Container>
     )
 }
 export default Favorite;
